@@ -19,7 +19,7 @@ import {
   ProtectedRoute
 } from '@components';
 import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from '@store';
 import { checkUserAuth } from '../../services/slices/userSlice';
 import { getIngredients } from '../../services/slices/ingredientsSlice';
@@ -31,14 +31,19 @@ const App = () => {
   const backgroundLocation = location.state?.background;
   const dispatch = useDispatch();
   const { isAuthChecked } = useSelector((state) => state.user);
+  const loadingFlag = useRef<boolean>(false);
 
   const handleModalClose = () => {
     navigate(-1);
   };
 
   useEffect(() => {
-    dispatch(checkUserAuth());
-    dispatch(getIngredients());
+    if (!loadingFlag.current) {
+      loadingFlag.current = true;
+
+      dispatch(checkUserAuth());
+      dispatch(getIngredients());
+    }
   }, []);
 
   return (
