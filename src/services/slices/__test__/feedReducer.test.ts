@@ -1,19 +1,11 @@
 import feedReducer, {
   getFeeds,
   getOrderByNumber,
-  TFeedState
+  initialState
 } from '../feedSlice';
 import { TOrder } from '../../../utils/types';
 
 describe('feedReducer', () => {
-  const initialState: TFeedState = {
-    orders: [],
-    total: 0,
-    totalToday: 0,
-    loading: false,
-    error: null
-  };
-
   const orders: TOrder[] = [
     {
       _id: '123',

@@ -5,19 +5,11 @@ import userReducer, {
   updateUser,
   logoutUser,
   getOrders,
-  TUserState
+  initialState
 } from '../userSlice';
 import { TUser, TOrder } from '../../../utils/types';
 
 describe('userReducer', () => {
-  const initialState: TUserState = {
-    isAuthChecked: false,
-    user: null,
-    orders: [],
-    loading: false,
-    error: null
-  };
-
   const user: TUser = {
     email: 'test@example.com',
     name: 'Тестовый Пользователь'

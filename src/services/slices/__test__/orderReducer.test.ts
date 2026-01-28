@@ -3,19 +3,11 @@ import orderReducer, {
   clearConstructor,
   createOrder,
   removeIngredient,
-  TOrderState
+  initialState
 } from '../orderSlice';
 import { TConstructorIngredient, TOrder } from '../../../utils/types';
 
 describe('orderReducer', () => {
-  const initialState: TOrderState = {
-    bun: null,
-    ingredients: [],
-    orderRequest: false,
-    orderModalData: null,
-    error: null
-  };
-
   const bun: TConstructorIngredient = {
     id: '1',
     _id: '643d69a5c3f7b9001cfa093c',

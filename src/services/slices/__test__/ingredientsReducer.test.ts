@@ -1,16 +1,10 @@
 import ingredientsReducer, {
   getIngredients,
-  TIngredientsState
+  initialState
 } from '../ingredientsSlice';
 import { TIngredient } from '../../../utils/types';
 
 describe('ingredientsReducer', () => {
-  const initialState: TIngredientsState = {
-    ingredients: [],
-    loading: false,
-    error: null
-  };
-
   const ingredients: TIngredient[] = [
     {
       _id: '643d69a5c3f7b9001cfa093c',
